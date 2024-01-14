@@ -2,7 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'core/app_navigation.dart';
+
+/// This class is responsible for initializing the app.
 abstract class AppInit {
+  // Initializes the app.
   static Future<ProviderContainer> init() async {
     final widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
 
@@ -19,15 +23,20 @@ abstract class AppInit {
       observers: [],
     );
 
+    
+
     return provider;
   }
 }
 
+/// This is the root widget of the app.
 class App extends StatelessWidget {
   const App({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp();
+    return MaterialApp.router(
+      routerConfig: AppNavigation().router,
+    );
   }
 }
