@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import 'core/app_navigation.dart';
+import 'core/services/app_lifecycle.dart';
 
 /// This class is responsible for initializing the app.
 abstract class AppInit {
@@ -23,6 +23,8 @@ abstract class AppInit {
       observers: [],
     );
 
+    // Register app lifecycle listener.
+    provider.read(appLifecycleProvider);
     
 
     return provider;
