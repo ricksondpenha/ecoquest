@@ -17,6 +17,7 @@ class AppNavigation {
     navigatorKey: _rootNavigatorKey,
     initialLocation: QuestsRoute.path,
     routes: routes,
+    observers: [RedirectToHomeObserver()],
   );
 
   static final routes = <RouteBase>[
@@ -47,4 +48,19 @@ class AppNavigation {
       ],
     ),
   ];
+}
+
+/// This observer redirects the user to the home page if the app doesn't have any routes left in its stack.
+class RedirectToHomeObserver extends NavigatorObserver {
+  @override
+  void didPush(Route<dynamic> route, Route<dynamic>? previousRoute) {
+    super.didPush(route, previousRoute);
+
+    if (previousRoute == null && route.settings.name != '/') {
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        final context = route.navigator!.context;
+        GoRouter.of(context).goNamed(QuestsRoute.name);
+      });
+    }
+  }
 }
