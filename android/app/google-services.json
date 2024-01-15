@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "227809442243",
+    "project_id": "ecoquest-game",
+    "storage_bucket": "ecoquest-game.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:227809442243:android:4036c8077ac8403b6ba576",
+        "android_client_info": {
+          "package_name": "com.appventor.ecoquest"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6FiYHNwzvEq3Hhiy1uzbRVf-hlWfFIkQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
