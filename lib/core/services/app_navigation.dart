@@ -1,9 +1,9 @@
-import 'package:ecoquest/features/achievments/achievements_page.dart';
-import 'package:ecoquest/features/quests/quests_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../features/home/home_page.dart';
+import '../../features/achievments/achievements_page.dart';
+import '../../features/home/home_page.dart';
+import '../../features/quests/quests_page.dart';
 
 class AppNavigation {
   static final _rootNavigatorKey =
@@ -13,7 +13,7 @@ class AppNavigation {
   static final _acheivementsNavigatorKey =
       GlobalKey<NavigatorState>(debugLabel: 'acheivements');
 
-  final router = GoRouter(
+  static final router = GoRouter(
     navigatorKey: _rootNavigatorKey,
     initialLocation: QuestsRoute.path,
     routes: routes,

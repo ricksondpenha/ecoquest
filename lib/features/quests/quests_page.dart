@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+
+import '../../core/services/app_lifecycle.dart';
+
 
 class QuestsRoute extends StatelessWidget {
   const QuestsRoute({super.key});
@@ -20,8 +24,13 @@ class QuestsPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder(
-      child: Text('Quests Page'),
+    return Placeholder(
+      child: Consumer(
+        builder: (context, ref, child) {
+          return Text(
+              'Quests Page lifecycle state: ${ref.watch(appLifecycleProvider).name}');
+        },
+      ),
     );
   }
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 class ShellAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
 
-  const ShellAppBar({Key? key, required this.title}) : super(key: key);
+  const ShellAppBar({super.key, required this.title});
 
   @override
   State<ShellAppBar> createState() => _ShellAppBarState();

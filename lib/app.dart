@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/services/app_lifecycle.dart';
+import 'core/services/app_navigation.dart';
 
 /// This class is responsible for initializing the app.
 abstract class AppInit {
@@ -38,7 +39,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp.router(
-      routerConfig: AppNavigation().router,
+      routerConfig: AppNavigation.router,
     );
   }
 }

@@ -1,10 +1,10 @@
-import 'package:ecoquest/features/home/widgets/bottom_bar.dart';
-import 'package:ecoquest/features/home/widgets/shell_appbar.dart';
-import 'package:ecoquest/features/quests/quests_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
 import '../achievments/achievements_page.dart';
+import '../quests/quests_page.dart';
+import 'widgets/bottom_bar.dart';
+import 'widgets/shell_appbar.dart';
 
 class HomePage extends StatelessWidget {
   final StatefulNavigationShell navigationShell;
