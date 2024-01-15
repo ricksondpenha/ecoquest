@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import 'config/app_theme.dart';
 import 'core/services/app_lifecycle.dart';
 import 'core/services/app_navigation.dart';
 import 'core/services/local_storage.dart';
@@ -32,6 +33,7 @@ abstract class AppInit {
       // Initialize local storage.
       await provider.read(localStorageProvider).init();
 
+      await provider.read(appThemeProvider).init();
     } catch (e, s) {
       debugPrint('${e.toString()}, ${s.toString()}');
     }
@@ -46,8 +48,15 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return Consumer(builder: (context, ref, child) {
+      final appTheme = ref.watch(appThemeProvider);
     return MaterialApp.router(
       routerConfig: AppNavigation.router,
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: appTheme.themeMode,
+      );
+    }
     );
   }
 }
