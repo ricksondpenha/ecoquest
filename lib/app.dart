@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/services/app_lifecycle.dart';
 import 'core/services/app_navigation.dart';
+import 'core/services/local_storage.dart';
 
 /// This class is responsible for initializing the app.
 abstract class AppInit {
@@ -24,9 +25,16 @@ abstract class AppInit {
       observers: [],
     );
 
+    try {
     // Register app lifecycle listener.
     provider.read(appLifecycleProvider);
     
+      // Initialize local storage.
+      await provider.read(localStorageProvider).init();
+
+    } catch (e, s) {
+      debugPrint('${e.toString()}, ${s.toString()}');
+    }
 
     return provider;
   }
