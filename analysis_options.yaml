@@ -2,7 +2,8 @@ include: package:flutter_lints/flutter.yaml
 
 linter:
   rules:
-
+    - prefer_relative_imports
+    - prefer_single_quotes
 analyzer:
   plugins:
     - custom_lint
