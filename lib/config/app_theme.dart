@@ -18,12 +18,16 @@ class AppTheme extends ChangeNotifier {
 
   ThemeMode get themeMode => _themeMode;
 
-  static final lightTheme = ThemeData.light();
+  static final lightTheme = ThemeData(
+    colorSchemeSeed: Colors.orange,
+    brightness: Brightness.light,
+    visualDensity: VisualDensity.adaptivePlatformDensity,
 
-  static final darkTheme = ThemeData.dark();
+  );
 
-  static final themeData = ThemeData(
-    primarySwatch: Colors.purple,
+  static final darkTheme = ThemeData(
+    colorSchemeSeed: Colors.orange,
+    brightness: Brightness.dark,
     visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 
