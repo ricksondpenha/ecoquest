@@ -16,10 +16,6 @@ class HomePage extends StatelessWidget {
   void navigate(int selectedIndex) {
     navigationShell.goBranch(
       selectedIndex,
-      // A common pattern when using bottom navigation bars is to support
-      // navigating to the initial location when tapping the item that is
-      // already active. This example demonstrates how to support this behavior,
-      // using the initialLocation parameter of goBranch.
       initialLocation: selectedIndex == navigationShell.currentIndex,
     );
   }
@@ -27,7 +23,7 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const ShellAppBar(title: 'title'),
+      appBar: const ShellAppBar(title: 'EcoQuest'),
       body: navigationShell,
       bottomNavigationBar: BottomBar(
         navItems: const [

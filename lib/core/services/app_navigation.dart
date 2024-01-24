@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import '../../features/achievments/achievements_page.dart';
 import '../../features/home/home_page.dart';
 import '../../features/quests/quests_page.dart';
+import '../../features/settings/settings_page.dart';
 
 class AppNavigation {
   static final _rootNavigatorKey =
@@ -42,11 +43,17 @@ class AppNavigation {
               name: AchievementsRoute.name,
               path: AchievementsRoute.path,
               builder: (context, state) => const AchievementsRoute(),
-            )
+            ),
           ],
         ),
       ],
     ),
+    GoRoute(
+      name: SettingsRoute.name,
+      path: SettingsRoute.path,
+      parentNavigatorKey: _rootNavigatorKey,
+      builder: (context, state) => const SettingsRoute(),
+    )
   ];
 }
 

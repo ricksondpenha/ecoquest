@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+
+import '../../settings/settings_page.dart';
 
 class ShellAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -17,6 +20,12 @@ class _ShellAppBarState extends State<ShellAppBar> {
   Widget build(BuildContext context) {
     return AppBar(
       title: Text(widget.title),
+      actions: [
+        IconButton(
+          onPressed: () => context.pushNamed(SettingsRoute.name),
+          icon: const Icon(Icons.settings),
+        ),
+      ],
     );
   }
 }
