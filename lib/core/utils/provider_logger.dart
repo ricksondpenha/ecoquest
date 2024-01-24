@@ -1,5 +1,6 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import '../services/app_logger.dart';
 
 class ProviderLogger extends ProviderObserver {
   @override
@@ -9,10 +10,7 @@ class ProviderLogger extends ProviderObserver {
     Object? newValue,
     ProviderContainer container,
   ) {
-    debugPrint('''
-{
-  "provider": "${provider.name ?? provider.runtimeType}",
-  "newValue": "$newValue"
-}''');
+    AppLogger().i(
+        'provider: ${provider.name ?? provider.runtimeType},\nnewValue: $newValue');
   }
 }

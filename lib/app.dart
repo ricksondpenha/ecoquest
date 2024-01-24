@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'config/app_theme.dart';
 import 'core/services/app_lifecycle.dart';
+import 'core/services/app_logger.dart';
 import 'core/services/app_navigation.dart';
 import 'core/services/local_storage.dart';
 import 'core/utils/provider_logger.dart';
@@ -32,9 +33,11 @@ abstract class AppInit {
     );
 
     try {
-    // Register app lifecycle listener.
-    provider.read(appLifecycleProvider);
+      // Register app lifecycle listener.
+      provider.read(appLifecycleProvider);
 
+      provider.read(logger);
+    
       // Initialize local storage.
       await provider.read(localStorageProvider).init();
 
